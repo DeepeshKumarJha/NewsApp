@@ -1,0 +1,14 @@
+header {
+	display: flex;
+	justify-content: center;
+}
+
+#logo {
+	color: transparent;
+	text-align: center;
+	font-size: 4.5rem;
+	font-weight: 100;
+	text-transform: capitalize;
+	background: linear-gradient(220.55deg, #ff9d7e 0%, #4d6ad0 100%);
+	background-clip: text;
+}

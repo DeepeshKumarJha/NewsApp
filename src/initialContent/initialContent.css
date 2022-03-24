@@ -1,0 +1,26 @@
+.initial-container {
+	margin: 0 50px;
+}
+
+.initial-container h1 {
+	font-weight: 200;
+}
+
+.news-card-container {
+	height: 200px;
+	background: #eeeeee;
+	display: flex;
+	margin: 10px 0;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.news-card-image img {
+	height: 100%;
+	width: 300px;
+}
+
+.news-card-content {
+	margin-left: 20px;
+	margin-right: 20px;
+}
