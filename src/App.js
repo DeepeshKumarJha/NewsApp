@@ -1,14 +1,11 @@
 import React from "react";
-import Header from "./header/header.component";
-import Search from "./search/search.component";
-import InitialList from "./initialContent/initial.component";
+import AllRoutes from "./routes/all.routes";
 
 const App = () => {
+	console.log(process.env.REACT_APP_API_KEY);
 	return (
 		<>
-			<Header />
-			<Search />
-			<InitialList />
+			<AllRoutes />
 		</>
 	);
 };

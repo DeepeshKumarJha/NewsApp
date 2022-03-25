@@ -1,7 +1,8 @@
+import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 import CardSkeleton from "../LoadingSkeleton/card.skeleton.component";
-import "./initialContent.css";
 
 const Loading = () => {
 	return (
@@ -25,29 +26,31 @@ const NewsCard = (props) => {
 	);
 };
 
-const InitialContent = () => {
+const ResultPage = () => {
+	const param = useParams();
 	const [loading, setLoading] = useState(false);
 	const [news, setNews] = useState();
+
 	useEffect(async () => {
 		// whenever this component first mountend on the web save it into the local storage by getting it from the api
 		console.log("fetching data .......");
 		setLoading(true);
 		try {
 			const response = await axios.get(
-				`https://newsapi.org/v2/top-headlines?country=IN&apiKey=${process.env.REACT_APP_API_KEY}`
+				`https://newsapi.org/v2/everything?q=${param.searchValue}&language=en&apiKey=${process.env.REACT_APP_API_KEY}`
 			);
-			console.log("value of response ", response.data.articles);
+
 			setNews(response);
 			setLoading(false);
 		} catch (error) {
 			console.log("something went wrong");
 			setLoading(false);
 		}
-	}, []);
+	}, [param.searchValue]);
 
 	return (
 		<div className='initial-container'>
-			<h1>Top Headlines</h1>
+			<h1>Search Result for "{param.searchValue}"</h1>
 			{loading ? (
 				<Loading />
 			) : (
@@ -59,4 +62,4 @@ const InitialContent = () => {
 	);
 };
 
-export default InitialContent;
+export default ResultPage;

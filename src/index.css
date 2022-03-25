@@ -1,6 +1,9 @@
-*,
-*::after,
-*::before {
+:root {
+	--background-color: #0f0e17;
+	--search-box-background-color: #1c1b22;
+	--card-background-color: #2f3033;
+	--card-color: white;
+	--card-skeleton-color: #1a1b1b;
 }
 
 body {
@@ -8,4 +11,5 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Prompt", sans-serif;
+	background-color: var(--background-color);
 }
