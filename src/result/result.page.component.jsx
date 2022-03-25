@@ -16,7 +16,7 @@ const NewsCard = (props) => {
 	return (
 		<div className='news-card-container'>
 			<div className='news-card-image'>
-				<img src={props.item.urlToImage} alt='image' />
+				<img src={props.item.urlToImage} alt='' />
 			</div>
 			<div className='news-card-content'>
 				<h3 style={{ fontWeight: 200 }}>{props.item.title}</h3>
