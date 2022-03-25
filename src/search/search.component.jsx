@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./search.css";
 import SearchResult from "./searchresult.component";
@@ -41,17 +41,17 @@ const Search = () => {
 		}
 	};
 
-	useEffect(() => {
-		console.log("i am in the effect function");
-		const delayTheSearch = setTimeout(() => {
-			console.log("phrase is : ", phrase);
-			searchPhrase();
-		}, 2000);
+	// useEffect(() => {
+	// 	console.log("i am in the effect function");
+	// 	const delayTheSearch = setTimeout(() => {
+	// 		console.log("phrase is : ", phrase);
+	// 		searchPhrase();
+	// 	}, 2000);
 
-		return () => {
-			clearTimeout(delayTheSearch);
-		};
-	}, []);
+	// 	return () => {
+	// 		clearTimeout(delayTheSearch);
+	// 	};
+	// }, []);
 
 	return (
 		<div
