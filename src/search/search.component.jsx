@@ -51,7 +51,7 @@ const Search = () => {
 		return () => {
 			clearTimeout(delayTheSearch);
 		};
-	}, [phrase]);
+	}, []);
 
 	return (
 		<div
