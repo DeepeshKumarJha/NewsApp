@@ -28,21 +28,25 @@ const NewsCard = (props) => {
 const InitialContent = () => {
 	const [loading, setLoading] = useState(false);
 	const [news, setNews] = useState();
-	useEffect(async () => {
-		// whenever this component first mountend on the web save it into the local storage by getting it from the api
-		console.log("fetching data .......");
-		setLoading(true);
-		try {
-			const response = await axios.get(
-				`https://newsapi.org/v2/top-headlines?country=IN&apiKey=${process.env.REACT_APP_API_KEY}`
-			);
-			console.log("value of response ", response.data.articles);
-			setNews(response);
-			setLoading(false);
-		} catch (error) {
-			console.log("something went wrong");
-			setLoading(false);
-		}
+
+	useEffect(() => {
+		const func = async () => {
+			// whenever this component first mountend on the web save it into the local storage by getting it from the api
+			console.log("fetching data .......");
+			setLoading(true);
+			try {
+				const response = await axios.get(
+					`https://newsapi.org/v2/top-headlines?country=IN&apiKey=${process.env.REACT_APP_API_KEY}`
+				);
+				console.log("value of response ", response.data.articles);
+				setNews(response);
+				setLoading(false);
+			} catch (error) {
+				console.log("something went wrong");
+				setLoading(false);
+			}
+		};
+		func();
 	}, []);
 
 	return (

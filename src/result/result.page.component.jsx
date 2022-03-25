@@ -31,21 +31,24 @@ const ResultPage = () => {
 	const [loading, setLoading] = useState(false);
 	const [news, setNews] = useState();
 
-	useEffect(async () => {
-		// whenever this component first mountend on the web save it into the local storage by getting it from the api
-		console.log("fetching data .......");
-		setLoading(true);
-		try {
-			const response = await axios.get(
-				`https://newsapi.org/v2/everything?q=${param.searchValue}&language=en&apiKey=${process.env.REACT_APP_API_KEY}`
-			);
+	useEffect(() => {
+		const func = async () => {
+			// whenever this component first mountend on the web save it into the local storage by getting it from the api
+			console.log("fetching data .......");
+			setLoading(true);
+			try {
+				const response = await axios.get(
+					`https://newsapi.org/v2/everything?q=${param.searchValue}&language=en&apiKey=${process.env.REACT_APP_API_KEY}`
+				);
 
-			setNews(response);
-			setLoading(false);
-		} catch (error) {
-			console.log("something went wrong");
-			setLoading(false);
-		}
+				setNews(response);
+				setLoading(false);
+			} catch (error) {
+				console.log("something went wrong");
+				setLoading(false);
+			}
+		};
+		func();
 	}, [param.searchValue]);
 
 	return (
