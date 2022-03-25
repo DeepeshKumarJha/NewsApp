@@ -42,7 +42,7 @@ const InitialContent = () => {
 				setNews(response);
 				setLoading(false);
 			} catch (error) {
-				console.log("something went wrong");
+				console.log("something went wrong", error);
 				setLoading(false);
 			}
 		};
